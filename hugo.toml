@@ -1,0 +1,40 @@
+baseURL = 'https://www.rosenboom.name/'
+DefaultContentLanguage = 'en'
+languageCode = 'en-us'
+title = 'rosenboom.name'
+timeZone = 'Europe/Berlin'
+theme = 'beautifulhugo'
+
+[params]
+  selfHosted = true
+  logo = 'images/great_wave_off_kanagawa_200x200.jpg'
+  rss = false
+  comments = false
+  readingTime = false
+  wordCount = false
+  useHLJS = false
+  socialShare = false
+  hideAuthor = true
+  [params.author]
+    name = 'Manfred Rosenboom'
+    website = 'https://manfred.rosenboom.name/'
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+    respectDoNotTrack = true
+  [privacy.instagram]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youTube]
+    disable = true
+
+[taxonomies]
+  tag = ''
+  category = ''
+

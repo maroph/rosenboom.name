@@ -1,0 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:maroph@pm.me
+Expires: 2025-12-31T22:59:00.000Z
+Preferred-Languages: de, en, nl
+Canonical: https://maroph.github.io/nosense/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEA5j4H/oU4tBbTbZpE11zypMCpZcFAmiuuUUACgkQE11zypMC
+pZe81Q/+KhzkNFmDGUx5+WNcHsuhWvNLJR70MgM1+6ZFAV9ETWk8nhzwloKfB3TG
+vJ/1RteGKoq5yWTudL7snz5WKyiHsMJjghAXpREkK5I4Y1RWMLZifNK87ICyiyMQ
+7VKW5Aw9ItD45pOfSoRyS7gWsKqROFz9W9OS+6cxkSABAkrtrUR6mPHpoV0H27Ru
+mddhZ2dzPQtkXkgDMoXMSL22VT4rKndHdnzgw8bmuW4JjzB1YviyPeopFChAIi+p
+ytt06aKrsbe7mehwQUCqMLgjD0uTg6F5FXhR6cnu6FWDBWN53a4sIUMa3ywPOZ8+
+6deodKS4IgV37VFVQfB6LB447xRmk/26Mh/yG1uy0F4KzLvXP8efXUQjLQHbbct8
+Id9tMWn4jwtVSXihbUbD76p1PuFECaJtXOCXJT5x8h1YpFAPsyr08JkuhTKHJwNk
+FgBz7ji4VmRVHCw5BMFytaXqyDJCxS9Fbz2Wju555ZxcEk6G3knmDecQXrq7xku4
+mMCDJWfEL9EM0k9cwwTdLtqJw2rkFheo2OVrqbtbzszTeBFtjcBva80AYn0Q/ft5
+rECPmFN9k5KXHyZ45dKOHxKrDe7CUmPk6hqBdHMVoekMkW+RGQfmjZGRYoSJcg2u
+CYI1/dMAAULGW6Jd/sNla1GZSGeyHFAWmdfvfK0Y4FLNFoJ9T+Y=
+=Muuk
+-----END PGP SIGNATURE-----
