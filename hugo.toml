@@ -9,6 +9,7 @@ enableGitInfo = false
 [params]
   selfHosted = true
   logo = 'images/great_wave_off_kanagawa_200x200.jpg'
+  since = 2009
   rss = false
   comments = false
   readingTime = false
