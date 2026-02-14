@@ -8,7 +8,7 @@ enableGitInfo = false
 
 [params]
   selfHosted = true
-  logo = 'images/great_wave_off_kanagawa_200x200.jpg'
+  logo = 'images/great_wave_off_kanagawa_100x100.webp'
   since = 2009
   rss = false
   comments = false
@@ -19,7 +19,9 @@ enableGitInfo = false
   hideAuthor = true
   [params.author]
     name = 'Manfred Rosenboom'
-    website = 'https://manfred.rosenboom.name/'
+    website = 'https://maroph.github.io/'
+    github = 'maroph'
+    mastodon = 'https://mastodon.social/@maroph'
 
 [privacy]
   [privacy.disqus]
