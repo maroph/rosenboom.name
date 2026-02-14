@@ -19,9 +19,7 @@ enableGitInfo = false
   hideAuthor = true
   [params.author]
     name = 'Manfred Rosenboom'
-    website = 'https://maroph.github.io/'
-    github = 'maroph'
-    mastodon = 'https://mastodon.social/@maroph'
+    website = 'https://mastodon.social/@maroph'
 
 [privacy]
   [privacy.disqus]
