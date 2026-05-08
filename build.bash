@@ -1,18 +1,18 @@
 #!/bin/bash
 #
 ####################################################
-# Copyright (c) 2025 by Manfred Rosenboom          #
+# Copyright (c) 2026 by Manfred Rosenboom          #
 # https://maroph.github.io/ (maroph@pm.me)         #
 #                                                  #
 # This work is licensed under a CC-BY 4.0 License. #
 # https://creativecommons.org/licenses/by/4.0/     #
 ####################################################
-COPYRIGHT="Copyright (C) 2025 Manfred Rosenboom."
+COPYRIGHT="Copyright (C) 2026 Manfred Rosenboom."
 LICENSE="License: CC-BY 4.0 <https://creativecommons.org/licenses/by/4.0/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="27-AUG-2025"
+declare -r VERSION_DATE="08-MAY-2026"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 ###############################################################################
@@ -131,6 +131,12 @@ then
 fi
 #
 ###############################################################################
+#
+echo "${SCRIPT_NAME}: rm -fr public"
+rm -fr public
+#
+echo "${SCRIPT_NAME}: mkdir public"
+mkdir public || exit 1
 #
 echo "${SCRIPT_NAME}: hugo build --gc --minify"
 hugo build --gc --minify || exit 1

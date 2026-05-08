@@ -10,6 +10,7 @@ enableGitInfo = false
   selfHosted = true
   logo = 'images/great_wave_off_kanagawa_100x100.webp'
   since = 2009
+  mainSections = ['']
   rss = false
   comments = false
   readingTime = false
@@ -20,6 +21,16 @@ enableGitInfo = false
   [params.author]
     name = 'Manfred Rosenboom'
     website = 'https://mastodon.social/@maroph'
+
+#  [[menus.main]]
+#    name = 'About'
+#    pageRef = 'pages/about'
+#    weight = 2
+#  [[menus.main]]
+#    parent = 'About'
+#    name = 'Manfred'
+#    url = 'pages/about/manfred'
+#    weight = 3
 
 [privacy]
   [privacy.disqus]
