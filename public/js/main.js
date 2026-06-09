@@ -81,6 +81,80 @@ var main = {
     [...tooltipTriggerList].map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+
+    // Theme toggle
+    var themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      var themeStates = ['auto', 'light', 'dark'];
+      var themeIcons = {
+        auto: document.getElementById('theme-icon-auto'),
+        light: document.getElementById('theme-icon-light'),
+        dark: document.getElementById('theme-icon-dark')
+      };
+
+      function updateThemeTooltip(state) {
+        var tooltipText = themeToggle.getAttribute('data-tooltip-' + state) || '';
+        themeToggle.setAttribute('title', tooltipText);
+        themeToggle.setAttribute('data-bs-original-title', tooltipText);
+        var bsTooltip = bootstrap.Tooltip.getInstance(themeToggle);
+        if (bsTooltip) {
+          bsTooltip.dispose();
+          new bootstrap.Tooltip(themeToggle);
+          if (themeToggle.matches(':hover')) {
+            bootstrap.Tooltip.getOrCreateInstance(themeToggle).show();
+          }
+        }
+      }
+
+      function updateThemeUI(state) {
+        for (var key in themeIcons) {
+          if (themeIcons[key]) {
+            themeIcons[key].style.display = (key === state) ? '' : 'none';
+          }
+        }
+        if (state === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (state === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+        }
+        var hljsDark = document.getElementById('hljs-dark');
+        if (hljsDark) {
+          var isDark = (state === 'dark') || (state === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          hljsDark.disabled = !isDark;
+        }
+        updateThemeTooltip(state);
+      }
+
+      // Initialize from localStorage
+      var savedTheme = localStorage.getItem('theme');
+      if (themeStates.indexOf(savedTheme) !== -1) {
+        updateThemeUI(savedTheme);
+      }
+
+      // Listen for system color-scheme changes
+      var darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      if (darkModeQuery.addEventListener) {
+        darkModeQuery.addEventListener('change', function() {
+          var current = localStorage.getItem('theme') || 'auto';
+          if (current === 'auto') {
+            updateThemeUI('auto');
+          }
+        });
+      }
+
+      themeToggle.addEventListener('click', function() {
+        var current = localStorage.getItem('theme') || 'auto';
+        var next = themeStates[(themeStates.indexOf(current) + 1) % themeStates.length];
+        updateThemeUI(next);
+        localStorage.setItem('theme', next);
+      });
+    }
   },
 
   initImgs : function() {
@@ -207,38 +281,37 @@ document.addEventListener('DOMContentLoaded', main.init);
  */
 document.addEventListener('DOMContentLoaded', () => {
   const highlights = document.querySelectorAll('.row div.highlight');
-  const copyText = '📋';
-  const copiedText = '✔️';
-
   highlights.forEach((highlight) => {
       const copyButton = document.createElement('button');
-      copyButton.innerHTML = copyText;
-      copyButton.classList.add('copyCodeButton');
+      copyButton.classList.add('copyCodeButton', 'btn', 'btn-sm', 'btn-outline-secondary');
+      copyButton.setAttribute('title', 'Copy to clipboard');
+      copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
       highlight.appendChild(copyButton);
 
       const codeBlock = highlight.querySelector('code[data-lang]');
       if (!codeBlock) return;
 
       copyButton.addEventListener('click', () => {
-          // Create a deep clone of the code block
           const codeBlockClone = codeBlock.cloneNode(true);
 
-          // Remove line number elements from the clone
           const lineNumbers = codeBlockClone.querySelectorAll('.ln');
           lineNumbers.forEach(ln => ln.remove());
 
-          // Get the text content, splitting by lines, trimming each line, and joining back
           const codeText = codeBlockClone.textContent
-              .split('\n')              // Split into lines
-              .map(line => line.trim()) // Trim each line
-              .join('\n');              // Join lines back with newline
+              .split('\n')
+              .map(line => line.trim())
+              .join('\n');
 
           navigator.clipboard.writeText(codeText)
               .then(() => {
-                  copyButton.textContent = copiedText;
+                  copyButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+                  copyButton.classList.remove('btn-outline-secondary');
+                  copyButton.classList.add('btn-success');
 
                   setTimeout(() => {
-                      copyButton.textContent = copyText;
+                      copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+                      copyButton.classList.remove('btn-success');
+                      copyButton.classList.add('btn-outline-secondary');
                   }, 1000);
               })
               .catch((err) => {
