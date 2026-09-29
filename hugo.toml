@@ -1,6 +1,7 @@
+# Last updated: 29-SEP-2026
 baseURL = 'https://www.rosenboom.name/'
-DefaultContentLanguage = 'en'
-languageCode = 'en-us'
+defaultContentLanguage = 'en'
+locale = 'en-us'
 title = 'rosenboom.name'
 timeZone = 'Europe/Berlin'
 theme = 'beautifulhugo'
