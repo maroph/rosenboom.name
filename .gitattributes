@@ -24,5 +24,6 @@
 *.pdf   binary
 *.png   binary
 *.ttf   binary
-*.woff  binnary
-*.woff2 binnary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
